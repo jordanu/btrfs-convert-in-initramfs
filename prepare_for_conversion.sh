@@ -21,7 +21,7 @@ sudo update-initramfs -c -k all
 # Get Ubuntu's secure boot tiny grub.cfg to seach by label (which will stay the
 # same between the ext4 FS and the btrfs FS) instead of by filesystem UUID
 # (which will change)
-sudo sed -i 's/search.fs_uuid.*/search.fs_label cloudimg-rootfs root' /boot/EFI/ubuntu/grub.cfg
+sudo sed -i 's/search.fs_uuid.*/search.fs_label cloudimg-rootfs root/' /boot/EFI/ubuntu/grub.cfg
 
 # Make grub's own search commands search by label, until the next time
 # update-grub gets run, by which point it should correctly grab the UUID of the
