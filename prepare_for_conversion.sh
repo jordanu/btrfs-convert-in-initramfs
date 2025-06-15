@@ -13,7 +13,7 @@ sudo cp premount_convert-to-btrfs.sh /etc/initramfs-tools/scripts/init-premount/
 echo "btrfs" | sudo tee -a /etc/initramfs-tools/modules
 
 # Switch ext4 to btrfs in entry for root fs in fstab
-sudo sed -i 's/ext4/btrfs/' /etc/fstab
+sudo sed -i $'s/ext4.*/btrfs\tdefaults\t0 1/' /etc/fstab
 
 # Actually generate new initramfs with the above changes!
 sudo update-initramfs -c -k all
